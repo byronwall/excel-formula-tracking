@@ -125,14 +125,6 @@ namespace ExcelFormulaViewer
 			//GenerateFullTreeWithReferences(root);			
 		}
 		
-		private static Random random = new Random();
-		public static string RandomString(int length)
-		{
-			const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-			return new string(Enumerable.Repeat(chars, length)
-      .Select(s => s[random.Next(s.Length)]).ToArray());
-		}
-		
 		[ExcelFunction(IsMacroType = true)]
 		public static string GetFullFormulaOptions([ExcelArgument(AllowReference = true)]object arg, bool replaceRef = false, bool resolveName = false, int decimalPlaces = 5)
 		{
@@ -145,10 +137,6 @@ namespace ExcelFormulaViewer
 			var root = parser.Root;
 			
 			var newFormula = GetFormulaForFunc(root, replaceRef, resolveName, -1);
-			
-			//get a random string and sub out the underscores
-			var underscoreSub = "IOYURLAHBW";
-			newFormula = newFormula.Replace("_", underscoreSub);
 
 			//remove the SUMs
 			var noSumVersion = GetFormulaWithoutSum(new XLParser.FormulaAnalyzer(newFormula).Root);			
@@ -168,10 +156,8 @@ namespace ExcelFormulaViewer
 			var ratFormula = Infix.Format(Rational.Expand(Infix.ParseOrThrow(finalFormula)));
 
 			var shortFormula = new []{algFormula, ratFormula, finalFormula}.OrderBy(c=>c.Length).First();
-			
-			var outputFormula = shortFormula.Replace(underscoreSub, "_");
 	
-			return outputFormula;	
+			return shortFormula;	
 		}
 		
 		[ExcelFunction(IsMacroType = true)]
