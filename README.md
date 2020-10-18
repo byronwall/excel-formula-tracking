@@ -1,6 +1,6 @@
 # Excel Formula Tracker
 
-This add-in provides a number of functions to walk through the calculation chain in Excel.  The goal of these functions is to allow you to audit and inspect how a given cell arrives at its result.  The calculation chain is walked  until all preceding cells are resolved to constants.
+This C# based add-in (XLL) provides a number of functions to walk through the calculation chain in Excel.  The goal of these functions is to allow you to audit and inspect how a given cell arrives at its result.  The calculation chain is walked  until all preceding cells are resolved to constants.
 
 When developed, this tool was used to convert a series of complicated formulas into a set of commands which could be added to a different program's source code.  The goal was to provide a simpler interface for maintaining those calculations (i.e. Excel) without having an expensive translation step into the other system (i.e. LabView).
 
