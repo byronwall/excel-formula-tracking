@@ -52,6 +52,9 @@
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ComputerAlgebra">
+      <HintPath>..\..\..\..\Users\TDAUser\Documents\Projects\ComputerAlgebra\ComputerAlgebra\bin\Debug\ComputerAlgebra.dll</HintPath>
+    </Reference>
     <Reference Include="ExcelDna.Integration">
       <HintPath>..\packages\ExcelDna.Integration.0.33.9\lib\ExcelDna.Integration.dll</HintPath>
     </Reference>
@@ -106,10 +109,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(SolutionDir)\packages\ExcelDna.AddIn.0.33.9\tools\ExcelDna.xll" "$(TargetDir)ExcelFormulaViewer-AddIn.xll" /C /Y
-xcopy "$(TargetDir)ExcelFormulaViewer-AddIn.dna*" "$(TargetDir)ExcelFormulaViewer-AddIn64.dna" /C /Y
-xcopy "$(SolutionDir)\packages\ExcelDna.AddIn.0.33.9\tools\ExcelDna64.xll" "$(TargetDir)ExcelFormulaViewer-AddIn64.xll" /C /Y
-"$(SolutionDir)packages\ExcelDna.AddIn.0.33.9\tools\ExcelDnaPack.exe" "$(TargetDir)ExcelFormulaViewer-AddIn.dna" /Y
-"$(SolutionDir)packages\ExcelDna.AddIn.0.33.9\tools\ExcelDnaPack.exe" "$(TargetDir)ExcelFormulaViewer-AddIn64.dna" /Y</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
